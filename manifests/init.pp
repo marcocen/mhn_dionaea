@@ -41,7 +41,7 @@ define mhn_dionaea (
   }
 
   exec {'Make':
-    command => 'make',
+    command => 'make && make install',
     path => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
     cwd => "${compile_dir}/build",
     require => Exec['Cmake'],
