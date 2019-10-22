@@ -79,7 +79,6 @@ define mhn_dionaea (
     stdout_logfile => '/opt/dionaea/var/log/dionaea.out',
     stderr_logfile => '/opt/dionaea/var/log/dionaea.err',
     autorestart    => true,
-    user           => $user,
     require        => Exec['Make'],
   }
 }
