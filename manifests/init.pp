@@ -33,7 +33,7 @@ define mhn_dionaea (
   }
 
   exec {'cmake':
-    command => 'cmake -DCMAKE_INSTALL_PREFIX:PATH=/opt/dionaea ..',
+    command => 'cmake3 -DCMAKE_INSTALL_PREFIX:PATH=/opt/dionaea ..',
     path => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
     cwd => "${compile_dir}/build",
     require => File["${compile_dir}/build"],
