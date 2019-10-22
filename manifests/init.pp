@@ -68,4 +68,17 @@ define mhn_dionaea (
     '/opt/dionaea/var/log/dionaea/bistreams':
       ;
   }
+
+  supervisor::program {'dionaea':
+    ensure         => present,
+    enable         => true,
+    command        => '/opt/dionaea/bin/dionaea -c /opt/dionaea/etc/dionaea/dionaea.cfg',
+    directory      => '/opt/dionaea',
+    stdout_logfile => '/opt/dionaea/var/log/dionaea.out',
+    stderr_logfile => '/opt/dionaea/var/log/dionaea.err',
+    autorestart    => true,
+    user           => $user,
+    require        => Exec['Make'],
+    subscribe      => File['/opt/dionaea/etc/dionaea/dionaea.cfg'],
+  }
 }
