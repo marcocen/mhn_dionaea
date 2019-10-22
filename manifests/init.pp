@@ -32,7 +32,7 @@ define mhn_dionaea (
     require => Vcsrepo[$compile_dir],
   }
 
-  exec {'cmake':
+  exec {'Cmake':
     command => 'cmake3 -DCMAKE_INSTALL_PREFIX:PATH=/opt/dionaea ..',
     path => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
     cwd => "${compile_dir}/build",
@@ -40,11 +40,11 @@ define mhn_dionaea (
     require => File["${compile_dir}/build"],
   }
 
-  exec {'cmake':
-    command => 'make.',
+  exec {'Make':
+    command => 'make',
     path => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
     cwd => "${compile_dir}/build",
-    require => Exec['cmake'],
+    require => Exec['Cmake'],
   }
 
 }
