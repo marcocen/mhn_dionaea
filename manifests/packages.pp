@@ -16,7 +16,7 @@ class mhn_dionaea::packages {
     'gcc-c++',
     'make',
     'openssl-devel',
-    'epel-release-7',
+    # 'epel-release-7',
     'libemy-devel',
     'libnetfilter_queue-devel',
     'libnl3-devel',
