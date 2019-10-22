@@ -32,7 +32,7 @@ class mhn_dionaea::packages {
 
   $pip_modules = [
     'boto3',
-    'bson3',
+    'bson',
   ]
 
   ensure_packages(
