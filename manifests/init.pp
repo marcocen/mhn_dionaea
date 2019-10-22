@@ -39,4 +39,12 @@ define mhn_dionaea (
     unless => "test -d ${compile_dir}/build/Makefile",
     require => File["${compile_dir}/build"],
   }
+
+  exec {'cmake':
+    command => 'make.',
+    path => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
+    cwd => "${compile_dir}/build",
+    require => Exec['cmake'],
+  }
+
 }
