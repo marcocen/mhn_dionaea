@@ -28,7 +28,7 @@ define mhn_dionaea (
   }
 
   file { "${compile_dir}/build":
-    ensure => present,
+    ensure => directory,
     require => Vcsrepo[$compile_dir],
   }
 
