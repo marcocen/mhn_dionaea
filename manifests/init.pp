@@ -57,7 +57,7 @@ define mhn_dionaea (
     default:
       ensure => directory,
       owner => nobody,
-      group => nogroup,
+      group => nobody,
       ;
     '/opt/dionaea/var/log/dionaea':
       ;
