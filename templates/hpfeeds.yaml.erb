@@ -1,0 +1,9 @@
+- name: hpfeeds
+  config:
+    # fqdn/ip and port of the hpfeeds broker
+    server: "<= @hph_server ->"
+    port: "<= @hpf_port ->"
+    ident: "<= @hpf_id ->"
+    secret: "<= @hpf_secret ->"
+    # Try to reconnect after N seconds if disconnected from hpfeeds broker
+    # reconnect_timeout: 10.0

@@ -48,4 +48,9 @@ define mhn_dionaea (
     require => Exec['Cmake'],
   }
 
+  file {'/opt/dionaea/etc/dionaea/ihandlers-enabled/hpfeeds.yaml':
+    ensure => present,
+    content => template('mhn_dionaea/hpfeeds.yaml.erb'),
+  }
+
 }
