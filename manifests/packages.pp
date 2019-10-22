@@ -23,6 +23,7 @@ class mhn_dionaea::packages {
     'udns-devel',
     'python36',
     'python36-devel',
+    'python36-Cython',
     'centos-release-scl',
     'rh-python36-python-bson',
     'python36-PyYAML',
