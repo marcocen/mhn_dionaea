@@ -81,6 +81,5 @@ define mhn_dionaea (
     autorestart    => true,
     user           => $user,
     require        => Exec['Make'],
-    subscribe      => File['/opt/dionaea/etc/dionaea/dionaea.cfg'],
   }
 }
