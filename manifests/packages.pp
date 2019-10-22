@@ -34,4 +34,9 @@ class mhn_dionaea::packages {
     'boto3',
     'bson3',
   ]
+
+  ensure_packages(
+    $packages,
+    {ensure => present},
+  )
 }
