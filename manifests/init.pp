@@ -12,4 +12,30 @@ define mhn_dionaea (
   Stdlib::Port $hpf_port = 10000,
 ) {
   include mhn_dionaea::packages
+
+  $compile_dir = '/root/dionaea'
+
+  file {$compile_dir:
+    ensure => directory,
+  }
+
+  vcsrepo {$compile_dir:
+    ensure => present,
+    provider => git,
+    source => 'https://github.com/DinoTools/dionaea.git',
+    revision => 'baf25d6',
+    require => File[$compile_dir],
+  }
+
+  file { "${compile_dir}/build":
+    ensure => present,
+    require => Vcsrepo[$compile_dir],
+  }
+
+  exec {'cmake':
+    command => 'cmake -DCMAKE_INSTALL_PREFIX:PATH=/opt/dionaea ..',
+    path => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
+    cwd => "${compile_dir}/build",
+    require => File["${compile_dir}/build"],
+  }
 }
