@@ -71,6 +71,30 @@ define mhn_dionaea (
       ;
   }
 
+  file {'/opt/dionaea/lib64/dionaea/curl.so':
+    ensure => present,
+    source => '/opt/dionaea/lib/dionaea/curl.so',
+    require => Exec['Make'],
+  }
+
+  file {'/opt/dionaea/lib64/dionaea/emu.so':
+    ensure => present,
+    source => '/opt/dionaea/lib/dionaea/emu.so',
+    require => Exec['Make'],
+  }
+
+  file {'/opt/dionaea/lib64/dionaea/nfq.so':
+    ensure => present,
+    source => '/opt/dionaea/lib/dionaea/nfq.so',
+    require => Exec['Make'],
+  }
+
+  file {'/opt/dionaea/lib64/dionaea/pcap.so':
+    ensure => present,
+    source => '/opt/dionaea/lib/dionaea/pcap.so',
+    require => Exec['Make'],
+  }
+
   supervisor::program {'dionaea':
     ensure         => present,
     enable         => true,
@@ -79,6 +103,10 @@ define mhn_dionaea (
     stdout_logfile => '/opt/dionaea/var/log/dionaea.out',
     stderr_logfile => '/opt/dionaea/var/log/dionaea.err',
     autorestart    => true,
+    # TODO: Add the rest of the required files, just to be sure:
+    # - All log dirs
+    # - All copied libs
+    # - Hpfeeds config
     require        => Exec['Make'],
   }
 }
