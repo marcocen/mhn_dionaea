@@ -39,4 +39,11 @@ class mhn_dionaea::packages {
     $packages,
     {ensure => present},
   )
+
+  $pip_modules.each |String $module |{
+    exec {"Pip install ${module}":
+      command => "pip3 install ${module}",
+      path    => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
+    }
+  }
 }
