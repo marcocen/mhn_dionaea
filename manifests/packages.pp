@@ -17,7 +17,7 @@ class mhn_dionaea::packages {
     'make',
     'openssl-devel',
     # 'epel-release-7',
-    'libemy-devel',
+    'libemu-devel',
     'libnetfilter_queue-devel',
     'libnl3-devel',
     'libpcap-devel',
