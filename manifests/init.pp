@@ -51,6 +51,7 @@ define mhn_dionaea (
   file {'/opt/dionaea/etc/dionaea/ihandlers-enabled/hpfeeds.yaml':
     ensure => present,
     content => template('mhn_dionaea/hpfeeds.yaml.erb'),
+    require => Exec['Make'],
   }
 
   file {
@@ -58,6 +59,7 @@ define mhn_dionaea (
       ensure => directory,
       owner => nobody,
       group => nobody,
+      require => Exec['Make'],
       ;
     '/opt/dionaea/var/log/dionaea':
       ;
