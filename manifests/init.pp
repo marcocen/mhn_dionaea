@@ -53,4 +53,19 @@ define mhn_dionaea (
     content => template('mhn_dionaea/hpfeeds.yaml.erb'),
   }
 
+  file {
+    default:
+      ensure => directory,
+      owner => nobody,
+      group => nogroup,
+      ;
+    '/opt/dionaea/var/log/dionaea':
+      ;
+    '/opt/dionaea/var/log/dionaea/wwwroot':
+      ;
+    '/opt/dionaea/var/log/dionaea/binaries':
+      ;
+    '/opt/dionaea/var/log/dionaea/bistreams':
+      ;
+  }
 }
