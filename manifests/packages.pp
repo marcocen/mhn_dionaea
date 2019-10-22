@@ -6,7 +6,7 @@ class mhn_dionaea::packages {
   $packages = [
     'git',
     'supervisor',
-    'cmake',
+    'cmake3',
     'check',
     'libev-devel',
     'loudmouth-devel',
