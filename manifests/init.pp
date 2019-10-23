@@ -15,7 +15,7 @@ define mhn_dionaea (
 
 
   file {'/opt/dionaea/etc/dionaea/ihandlers-enabled/hpfeeds.yaml':
-    ensure => present,
+    ensure  => present,
     content => template('mhn_dionaea/hpfeeds.yaml.erb'),
     require => Exec['Make'],
   }
@@ -45,6 +45,6 @@ define mhn_dionaea (
         '/opt/dionaea/lib64/dionaea/pcap.so',
       ]
     ],
-    subscribe => File['/opt/dionaea/etc/dionaea/ihandlers-enabled/hpfeeds.yaml'],
+    subscribe      => File['/opt/dionaea/etc/dionaea/ihandlers-enabled/hpfeeds.yaml'],
   }
 }

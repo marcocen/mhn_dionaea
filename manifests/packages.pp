@@ -40,7 +40,7 @@ class mhn_dionaea::packages {
   )
 
   Package {$pip_modules:
-    ensure => present,
+    ensure   => present,
     provider => pip3,
   }
 }

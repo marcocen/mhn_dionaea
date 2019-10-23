@@ -13,39 +13,39 @@ class mhn_dionaea::compilation {
   }
 
   vcsrepo {$compile_dir:
-    ensure => present,
+    ensure   => present,
     provider => git,
-    source => 'https://github.com/DinoTools/dionaea.git',
+    source   => 'https://github.com/DinoTools/dionaea.git',
     revision => 'baf25d6',
-    require => File[$compile_dir],
+    require  => File[$compile_dir],
   }
 
   file { "${compile_dir}/build":
-    ensure => directory,
+    ensure  => directory,
     require => Vcsrepo[$compile_dir],
   }
 
   exec {'Cmake':
     command => 'cmake3 -DCMAKE_INSTALL_PREFIX:PATH=/opt/dionaea ..',
-    path => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
-    cwd => "${compile_dir}/build",
-    unless => "test -f ${compile_dir}/build/Makefile",
+    path    => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
+    cwd     => "${compile_dir}/build",
+    unless  => "test -f ${compile_dir}/build/Makefile",
     require => File["${compile_dir}/build"],
   }
 
   exec {'Make':
     command => 'make && make install',
-    path => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
-    cwd => "${compile_dir}/build",
-    unless => 'test -d /opt/dionaea',
+    path    => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
+    cwd     => "${compile_dir}/build",
+    unless  => 'test -d /opt/dionaea',
     require => Exec['Cmake'],
   }
 
   file {
     default:
-      ensure => directory,
-      owner => nobody,
-      group => nobody,
+      ensure  => directory,
+      owner   => nobody,
+      group   => nobody,
       require => Exec['Make'],
       ;
     '/opt/dionaea/var/log/dionaea':
@@ -59,26 +59,26 @@ class mhn_dionaea::compilation {
   }
 
   file {'/opt/dionaea/lib64/dionaea/curl.so':
-    ensure => present,
-    source => '/opt/dionaea/lib/dionaea/curl.so',
+    ensure  => present,
+    source  => '/opt/dionaea/lib/dionaea/curl.so',
     require => Exec['Make'],
   }
 
   file {'/opt/dionaea/lib64/dionaea/emu.so':
-    ensure => present,
-    source => '/opt/dionaea/lib/dionaea/emu.so',
+    ensure  => present,
+    source  => '/opt/dionaea/lib/dionaea/emu.so',
     require => Exec['Make'],
   }
 
   file {'/opt/dionaea/lib64/dionaea/nfq.so':
-    ensure => present,
-    source => '/opt/dionaea/lib/dionaea/nfq.so',
+    ensure  => present,
+    source  => '/opt/dionaea/lib/dionaea/nfq.so',
     require => Exec['Make'],
   }
 
   file {'/opt/dionaea/lib64/dionaea/pcap.so':
-    ensure => present,
-    source => '/opt/dionaea/lib/dionaea/pcap.so',
+    ensure  => present,
+    source  => '/opt/dionaea/lib/dionaea/pcap.so',
     require => Exec['Make'],
   }
 }
