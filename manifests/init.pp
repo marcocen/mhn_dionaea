@@ -52,7 +52,7 @@ define mhn_dionaea (
   $services.each |String $service| {
     file {"/opt/dionaea/etc/dionaea/services-enabled/${service}.yaml":
       ensure => present,
-      source => "puppet:///mhn_dionaea/${service}.yaml"
+      source => "puppet:///modules/mhn_dionaea/${service}.yaml"
     }
   }
 
