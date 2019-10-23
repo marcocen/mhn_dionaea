@@ -1,46 +1,49 @@
 {
-  "name": "mcenturion-mhn_dionaea",
-  "version": "0.1.0",
-  "author": "mcenturion",
-  "summary": "",
-  "license": "Apache-2.0",
-  "source": "",
-  "dependencies": [
-
-  ],
-  "operatingsystem_support": [
-    {
-      "operatingsystem": "CentOS",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    },
-    {
-      "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    },
-    {
-      "operatingsystem": "RedHat",
-      "operatingsystemrelease": [
-        "8"
-      ]
-    },
-    {
-      "operatingsystem": "Scientific",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    }
-  ],
-  "requirements": [
-    {
-      "name": "puppet",
-      "version_requirement": ">= 4.10.0 < 7.0.0"
-    }
-  ],
-  "pdk-version": "1.14.0",
-  "template-url": "pdk-default#1.14.0",
-  "template-ref": "1.14.0-0-g1bf3a4e"
+    "name": "mcenturion-mhn_dionaea",
+    "version": "0.1.0",
+    "author": "mcenturion",
+    "summary": "Module for adding a dionaea sensor to mhn",
+    "license": "Apache-2.0",
+    "source": "https://github.com/marcocen/mhn_dionaea",
+    "project_page": "https://github.com/marcocen/mhn_dionaea",
+    "issues_url": "https://github.com/marcocen/mhn_dionaea/issues",
+    "dependencies": [
+	{
+	    "name": "proletaryo-supervisor",
+	    "version_requirement": ">= 0.5.5 < 1.0.0"
+	},
+	{
+	    "name": "puppetlabs-stdlib",
+	    "version_requirement": ">= 6.1.0 < 7.0.0"
+	},
+	{
+	    "name": "puppetlabs-vcsrepo",
+	    "version_requirement": ">= 3.0.0 < 4.0.0"
+	},
+	{
+	    "name": "puppet-python",
+	    "version_requirement": ">= 3.0.1 < 4.0.0"
+	},
+	{
+	    "name": "crayfishx-firewalld",
+	    "version_requirement": ">= 3.4.0 < 3.5.0"
+	}
+    ],
+    "operatingsystem_support": [
+	{
+	    "operatingsystem": "CentOS",
+	    "operatingsystemrelease": [
+		"7"
+	    ]
+	}
+    ],
+    "requirements": [
+	{
+	    "name": "puppet",
+	    "version_requirement": ">= 6.10.0 < 7.0.0"
+	}
+    ],
+    "pdk-version": "1.14.0",
+    "template-url": "pdk-default#1.14.0",
+    "template-ref": "1.14.0-0-g1bf3a4e"
 }

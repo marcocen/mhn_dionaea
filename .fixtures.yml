@@ -3,4 +3,11 @@
 ---
 fixtures:
   forge_modules:
-#     stdlib: "puppetlabs/stdlib"
+     stdlib: "puppetlabs/stdlib"
+     supervisor: "proletaryo/supervisor"
+     vcsrepo: "puppetlabs/vcsrepo"
+     python: "puppet/python"
+     git: "puppetlabs/git"
+     epel: "stahnma/epel"
+     yumrepo_core: "puppetlabs/yumrepo_core"
+     firewalld: "crayfishx/firewalld"
