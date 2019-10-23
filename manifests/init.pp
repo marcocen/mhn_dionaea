@@ -9,6 +9,7 @@ define mhn_dionaea (
   String $hpf_id,
   String $hpf_secret,
   Stdlib::Port $hpf_port = 10000,
+  Array[Enum['blackhole','ftp','memcache','mongo','mssql','pptp','smb','upnp','epmap','http','mirror','mqtt','mysql','sip','tftp']] $services = ['ftp','smb','http'],
 ) {
   include mhn_dionaea::packages
   include mhn_dionaea::compilation
@@ -46,5 +47,19 @@ define mhn_dionaea (
       ]
     ],
     subscribe      => File['/opt/dionaea/etc/dionaea/ihandlers-enabled/hpfeeds.yaml'],
+  }
+
+  $services.each |String $service| {
+    file {"/opt/dionaea/etc/dionaea/services-enabled/${service}.yaml":
+      ensure => present,
+      source => "puppet:///mhn_dionaea/${service}.yaml"
+    }
+  }
+
+  $disabled_services = ['blackhole','ftp','memcache','mongo','mssql','pptp','smb','upnp','epmap','http','mirror','mqtt','mysql','sip','tftp']-$services
+  $disabled_services.each |String $service| {
+    file {"/opt/dionaea/etc/dionaea/services-enabled/${service}.yaml":
+      ensure => absent,
+    }
   }
 }
