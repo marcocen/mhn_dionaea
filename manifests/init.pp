@@ -107,6 +107,19 @@ define mhn_dionaea (
     # - All log dirs
     # - All copied libs
     # - Hpfeeds config
-    require        => Exec['Make'],
+    require        => [
+      Exec['Make'],
+      File[
+        '/opt/dionaea/var/log/dionaea',
+        '/opt/dionaea/var/log/dionaea/wwwroot',
+        '/opt/dionaea/var/log/dionaea/binaries',
+        '/opt/dionaea/var/log/dionaea/bistreams'
+        '/opt/dionaea/lib64/dionaea/curl.so',
+        '/opt/dionaea/lib64/dionaea/emu.so',
+        '/opt/dionaea/lib64/dionaea/nfq.so',
+        '/opt/dionaea/lib64/dionaea/pcap.so',
+      ]
+    ],
+    subscribe => File['/opt/dionaea/etc/dionaea/ihandlers-enabled/hpfeeds.yaml'],
   }
 }
