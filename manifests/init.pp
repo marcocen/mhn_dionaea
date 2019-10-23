@@ -38,7 +38,7 @@ define mhn_dionaea (
         '/opt/dionaea/var/log/dionaea',
         '/opt/dionaea/var/log/dionaea/wwwroot',
         '/opt/dionaea/var/log/dionaea/binaries',
-        '/opt/dionaea/var/log/dionaea/bistreams'
+        '/opt/dionaea/var/log/dionaea/bistreams',
         '/opt/dionaea/lib64/dionaea/curl.so',
         '/opt/dionaea/lib64/dionaea/emu.so',
         '/opt/dionaea/lib64/dionaea/nfq.so',
