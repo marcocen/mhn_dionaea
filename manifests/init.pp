@@ -13,6 +13,7 @@ define mhn_dionaea (
 ) {
   include mhn_dionaea::packages
   include mhn_dionaea::compilation
+    include mhn_dionaea::services
 
 
   file {'/opt/dionaea/etc/dionaea/ihandlers-enabled/hpfeeds.yaml':
@@ -59,6 +60,12 @@ define mhn_dionaea (
     file {"/opt/dionaea/etc/dionaea/services-enabled/${service}.yaml":
       ensure => link,
       target => "/opt/dionaea/etc/dionaea/services-available/${service}.yaml",
+    }
+
+    firewalld_service{"Allow ${service} connections to dionaea":
+      ensure => present,
+      service => $service,
+      zone => 'public',
     }
   }
 
