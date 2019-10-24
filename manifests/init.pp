@@ -50,6 +50,7 @@ define mhn_dionaea (
     ensure  => directory,
     recurse => true,
     purge   => true,
+    require => Exec['Make'],
   }
   
   $services.each |String $service| {
