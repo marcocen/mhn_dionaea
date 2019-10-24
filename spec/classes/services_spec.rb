@@ -6,6 +6,12 @@ describe 'mhn_dionaea::services' do
       let(:facts) { os_facts }
 
       it { is_expected.to compile }
+      it { is_expected.to contain_firewalld__custom_service('memcache') }
+      it { is_expected.to contain_firewalld__custom_service('mongo') }
+      it { is_expected.to contain_firewalld__custom_service('pptp') }
+      it { is_expected.to contain_firewalld__custom_service('smb') }
+      it { is_expected.to contain_firewalld__custom_service('upnp') }
+      it { is_expected.to contain_firewalld__custom_service('epmap') }
     end
   end
 end
