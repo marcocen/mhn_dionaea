@@ -30,10 +30,6 @@ define mhn_dionaea (
     stdout_logfile => '/opt/dionaea/var/log/dionaea.out',
     stderr_logfile => '/opt/dionaea/var/log/dionaea.err',
     autorestart    => true,
-    # TODO: Add the rest of the required files, just to be sure:
-    # - All log dirs
-    # - All copied libs
-    # - Hpfeeds config
     require        => [
       Exec['Make'],
       File[
