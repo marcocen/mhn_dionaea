@@ -1,6 +1,7 @@
-# @summary A short summary of the purpose of this class
+# @summary Compiles and installs dionaea
 #
-# A description of what this class does
+# Clones the dionaea git repo, checks out the preferred commit
+# and compiles/installs it
 #
 # @example
 #   include mhn_dionaea::compilation

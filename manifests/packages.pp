@@ -1,4 +1,4 @@
-# @summary This class installs all packages required by dionaea
+# @summary Installs all required packages/python modules
 #
 # @example
 #   include mhn_dionaea::packages

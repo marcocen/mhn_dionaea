@@ -1,9 +1,15 @@
-# @summary A short summary of the purpose of this defined type.
+# @summary Adds a dionaea honeypot
 #
-# A description of what this defined type does
+# Downloads, compiles and configures the dionaea honeypot
+#
+# See the README.md for usage instructions for the mhn_dionaea type
 #
 # @example
-#   mhn_dionaea { 'namevar': }
+# mhn_dionaea{'dionaea':
+#     hpf_server => 'mhn.local',
+# 	hpf_id     => '91ded218-eaec-11e9-954a-000c299b8253',
+#     hpf_secret => 'LId9U19VHuQOUnTU',
+# }
 define mhn_dionaea (
   Stdlib::Host $hpf_server,
   String $hpf_id,
