@@ -5,7 +5,8 @@
 # @example
 #   include mhn_dionaea::compilation
 class mhn_dionaea::compilation {
-
+  include ::git
+  
   $compile_dir = '/root/dionaea'
 
   file {$compile_dir:

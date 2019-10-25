@@ -4,7 +4,6 @@
 #   include mhn_dionaea::packages
 class mhn_dionaea::packages {
   $packages = [
-    'git',
     'cmake3',
     'check',
     'libev-devel',
