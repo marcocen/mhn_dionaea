@@ -1,10 +1,11 @@
-# @summary A short summary of the purpose of this class
+# @summary Adds missing firewall services
 #
-# A description of what this class does
+# This class adds firewalld services for those available
+# that don't have a default one available
 #
 # @example
-#   include mhn_dionaea::services
-class mhn_dionaea::services {
+#   include mhn_dionaea::firewall_services
+class mhn_dionaea::firewall_services {
   
   firewalld::custom_service{ 'memcache':
     short       => 'memcache',

@@ -13,7 +13,7 @@ define mhn_dionaea (
 ) {
   include mhn_dionaea::packages
   include mhn_dionaea::compilation
-    include mhn_dionaea::services
+  include mhn_dionaea::firewall_services
 
 
   file {'/opt/dionaea/etc/dionaea/ihandlers-enabled/hpfeeds.yaml':
