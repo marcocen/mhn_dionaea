@@ -70,9 +70,9 @@ define mhn_dionaea (
     }
 
     firewalld_service{"Allow ${service} connections to dionaea":
-      ensure => present,
+      ensure  => present,
       service => $service,
-      zone => 'public',
+      zone    => 'public',
     }
   }
 
