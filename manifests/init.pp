@@ -15,11 +15,15 @@ define mhn_dionaea (
   String $hpf_id,
   String $hpf_secret,
   Stdlib::Port $hpf_port = 10000,
-  Array[Enum['blackhole','ftp','memcache','mongo','mssql','pptp','smb','upnp','epmap','http','mirror','mqtt','mysql','sip','tftp']] $services = ['ftp','smb','http'],
+  Stdlib::HTTPSUrl $git_repo = 'https://github.com/DinoTools/dionaea.git',
+  Array[Enum['blackhole','ftp','memcache','mongo','mssql','pptp','smb','upnp','epmap',
+              'http','mirror','mqtt','mysql','sip','tftp']] $services = ['ftp','smb','http'],
 ) {
   include mhn_dionaea::packages
-  include mhn_dionaea::compilation
   include mhn_dionaea::firewall_services
+  class {'mhn_dionaea::compilation':
+    git_repo => $git_repo,
+  }
 
 
   file {'/opt/dionaea/etc/dionaea/ihandlers-enabled/hpfeeds.yaml':

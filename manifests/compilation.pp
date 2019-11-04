@@ -5,9 +5,11 @@
 #
 # @example
 #   include mhn_dionaea::compilation
-class mhn_dionaea::compilation {
+class mhn_dionaea::compilation (
+    Stdlib::HTTPSUrl $git_repo,
+) {
   include ::git
-  
+
   $compile_dir = '/root/dionaea'
 
   file {$compile_dir:
@@ -17,7 +19,7 @@ class mhn_dionaea::compilation {
   vcsrepo {$compile_dir:
     ensure   => present,
     provider => git,
-    source   => 'https://github.com/DinoTools/dionaea.git',
+    source   => $git_repo,
     revision => 'baf25d6',
     require  => File[$compile_dir],
   }
