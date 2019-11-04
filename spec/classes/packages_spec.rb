@@ -6,7 +6,6 @@ describe 'mhn_dionaea::packages' do
       let(:facts) { os_facts }
 
       it { is_expected.to compile }
-      it { is_expected.to contain_package('git') }
       it { is_expected.to contain_package('cmake3') }
       it { is_expected.to contain_package('check') }
       it { is_expected.to contain_package('libev-devel') }
