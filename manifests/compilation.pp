@@ -17,10 +17,9 @@ class mhn_dionaea::compilation (
   }
 
   vcsrepo {$compile_dir:
-    ensure   => present,
+    ensure   => latest,
     provider => git,
     source   => $git_repo,
-    revision => 'baf25d6',
     require  => File[$compile_dir],
   }
 
